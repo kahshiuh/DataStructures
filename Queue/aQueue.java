@@ -1,6 +1,7 @@
 package Queue;
 
 import Errors.EmptyStructureException;
+import Errors.OutOfSpaceException;
 
 public class aQueue {
     private int[] data;
@@ -12,7 +13,7 @@ public class aQueue {
     }
     public void push(int element){
         if(currentSize == MAX_SIZE){
-            throw new OutOfMemoryError();
+            throw new OutOfSpaceException();
         }else{
             data[currentSize] = element;
             currentSize++;
