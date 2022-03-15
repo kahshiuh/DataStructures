@@ -1,3 +1,4 @@
+package LinkedList;
 public class IntNode{
     private int data;
     private IntNode nextNode;

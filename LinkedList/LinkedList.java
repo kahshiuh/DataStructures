@@ -18,7 +18,7 @@ public class LinkedList {
         return cursor;
     }
 
-    public void addAtEnd(int element){
+    public void add(int element){
         IntNode newNode = new IntNode(element);
         if(head == null){
             head = newNode;
