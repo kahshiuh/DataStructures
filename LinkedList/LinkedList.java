@@ -54,6 +54,25 @@ public class LinkedList {
         }
         return answer;
     }
+    public void removeTail(){
+        IntNode temp = head;
+        if(temp == null) return;
+        if(temp.getNextNode() == null){
+            head = null;
+        }
+        if (temp.getNextNode().getNextNode() == null) {
+            tail = head;
+        }
+        while(temp != null){
+            if(temp.getNextNode().getNextNode() == null){
+                tail = temp.getNextNode();
+                tail.setNextNode(null);
+                return;
+            }
+            temp = temp.getNextNode();
+        }
+        return;
+    }
     public int getSize(){
         IntNode temp = head;
         int answer = 0;

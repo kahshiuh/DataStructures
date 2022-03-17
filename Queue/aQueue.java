@@ -13,7 +13,7 @@ public class aQueue {
     }
     public void push(int element){
         if(currentSize == MAX_SIZE){
-            throw new OutOfSpaceException();
+            return;
         }else{
             data[currentSize] = element;
             currentSize++;
