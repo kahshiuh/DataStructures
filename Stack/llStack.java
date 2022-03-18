@@ -11,7 +11,7 @@ public class llStack {
         data.addAtHead(element);
     }
     public int pop(){
-        int ans = data.getHead().getData();
+        int ans = (int) data.getHead().data;
         data.removeHead();
         return ans;
     }
@@ -19,5 +19,8 @@ public class llStack {
         int temp = pop();
         data.addAtHead(temp);
         return temp;
+    }
+    public boolean isEmpty(){
+        return data.getHead() == null;
     }
 }

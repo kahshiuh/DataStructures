@@ -1,84 +1,86 @@
 package LinkedList;
 public class LinkedList {
-    IntNode head, tail, cursor;
+    Node head, tail, cursor;
     public LinkedList(){
         head = null;
         tail = null;
         cursor = null;
     }
-    public IntNode getHead(){
+    public Node getHead(){
         return head;
     }
     
-    public IntNode getTail() {
+    public Node getTail() {
         return tail;
     }
     
-    public IntNode getCursor() {
+    public Node getCursor() {
         return cursor;
     }
 
     public void add(int element){
-        IntNode newNode = new IntNode(element);
+        Node newNode = new Node<Integer>();
+        newNode.data = element;
         if(head == null){
             head = newNode;
             tail = head;
             cursor = head;
         }else{
-            tail.setNextNode(newNode);
+            tail.nextNode = newNode;
             tail = newNode;
         }
     }
     public void addAtHead(int element){
-        IntNode newNode = new IntNode(element);
+        Node newNode = new Node<Integer>();
+        newNode.data = element;
         if (head == null) {
             head = newNode;
             tail = head;
             cursor = head;
         } else {
-            newNode.setNextNode(head);
+            newNode.nextNode = head;
             head = newNode;
             cursor = head;
         }
     }
     public void removeHead(){
         if(head == null) return;
-        head = head.getNextNode();
+        head = head.nextNode;
     }
     public int countOccurences(int target){
-        IntNode temp = head;
+        Node temp = head;
         int answer = 0;
         while (temp != null) {
-            if(target == temp.getData()) answer++;
-            temp = temp.getNextNode();
+            if(target == (int) temp.data) answer++;
+            temp = temp.nextNode;
         }
         return answer;
     }
     public void removeTail(){
-        IntNode temp = head;
+        Node temp = head;
         if(temp == null) return;
-        if(temp.getNextNode() == null){
+        if(temp.nextNode == null){
             head = null;
         }
-        if (temp.getNextNode().getNextNode() == null) {
+        if (temp.nextNode.nextNode == null) {
             tail = head;
         }
         while(temp != null){
-            if(temp.getNextNode().getNextNode() == null){
-                tail = temp.getNextNode();
-                tail.setNextNode(null);
+            if(temp.nextNode.nextNode == null){
+                tail = temp.nextNode;
+                tail.nextNode = null;
                 return;
             }
-            temp = temp.getNextNode();
+            temp = temp.nextNode;
         }
         return;
     }
     public int getSize(){
-        IntNode temp = head;
+        Node temp = head;
         int answer = 0;
         while(temp != null){
             answer++;
-            temp = temp.getNextNode();
+            temp = temp.nextNode;
         }
         return answer;
     }

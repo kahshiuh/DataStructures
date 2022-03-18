@@ -23,4 +23,7 @@ public class aStack {
         push(temp);
         return temp;
     }
+    public boolean isEmpty(){
+        return size == 0;
+    }
 }

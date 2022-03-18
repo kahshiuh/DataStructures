@@ -10,7 +10,7 @@ public class llQueue {
     }
     public int pop(){
         if(data.getHead() != null){
-            int ans = data.getHead().getData();
+            int ans = (int) data.getHead().data;
             data.removeHead();
             return ans;
         }
